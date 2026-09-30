@@ -27,10 +27,17 @@ int main()
 
     runnerCount = readRunnerData(runners, MAX_RUNNERS);
 
-    calculateTotalsAndAverages(runners, runnerCount);
+    if (runnerCount > 0)
+    {
+        calculateTotalsAndAverages(runners, runnerCount);
 
-    displayResults(runners, runnerCount);
-
+        displayResults(runners, runnerCount);
+    }
+    else
+    {
+        cout << "No runner records available." << endl;
+    }
+   
     return 0;
 }
 
