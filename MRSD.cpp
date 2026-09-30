@@ -80,3 +80,34 @@ void calculateTotalsAndAverages(Runner runners[], int runnerCount)
         runners[i].average = runners[i].total / NUM_DAYS;
     }
 }
+
+void displayResults(const Runner runners[], int runnerCount)
+{
+    cout << left << setw(12) << "Runner";
+
+    for (int day = 1; day <= NUM_DAYS; day++)
+    {
+        cout << setw(8) << ("Day" + to_string(day));
+    }
+
+    cout << setw(10) << "Total"
+        << setw(10) << "Average"
+        << endl;
+
+    cout << fixed << setprecision(2);
+
+    for (int i = 0; i < runnerCount; i++)
+    {
+        cout << left << setw(12) << runners[i].name;
+
+        for (int day = 0; day < NUM_DAYS; day++)
+        {
+            cout << setw(8) << runners[i].miles[day];
+        }
+
+        cout << setw(10) << runners[i].total
+            << setw(10) << runners[i].average
+            << endl;
+    }
+}
+``
