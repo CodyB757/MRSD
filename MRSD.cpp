@@ -65,3 +65,18 @@ int readRunnerData(Runner runners[], int maxRunners)
 
     return runnerCount;
 }
+
+void calculateTotalsAndAverages(Runner runners[], int runnerCount)
+{
+    for (int i = 0; i < runnerCount; i++)
+    {
+        runners[i].total = 0;
+
+        for (int day = 0; day < NUM_DAYS; day++)
+        {
+            runners[i].total += runners[i].miles[day];
+        }
+
+        runners[i].average = runners[i].total / NUM_DAYS;
+    }
+}
