@@ -33,3 +33,35 @@ int main()
 
     return 0;
 }
+
+int readRunnerData(Runner runners[], int maxRunners)
+{
+    ifstream inputFile("runners.txt");
+
+    if (!inputFile)
+    {
+        cout << "Error opening file." << endl;
+        return 0;
+    }
+
+    int runnerCount = 0;
+
+    while (runnerCount < maxRunners)
+    {
+        if (!(inputFile >> runners[runnerCount].name))
+        {
+            break;
+        }
+
+        for (int day = 0; day < NUM_DAYS; day++)
+        {
+            inputFile >> runners[runnerCount].miles[day];
+        }
+
+        runnerCount++;
+    }
+
+    inputFile.close();
+
+    return runnerCount;
+}
